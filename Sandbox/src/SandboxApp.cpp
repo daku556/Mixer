@@ -1,7 +1,21 @@
 #include <Mixer.h>
-#include "Mixer.h"
 
-void main()
+class Sandbox : public Mixer::Application
 {
-	Mixer::Print();
+public: 
+	Sandbox()
+	{
+
+	}
+	~Sandbox()
+	{
+
+	}
+	
+
+};
+
+Mixer::Application* Mixer::CreateApplication()
+{
+	return new Sandbox();
 }

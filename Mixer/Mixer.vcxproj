@@ -95,6 +95,7 @@
     <ClInclude Include="src\Mixer.h" />
     <ClInclude Include="src\Mixer\Application.h" />
     <ClInclude Include="src\Mixer\Core.h" />
+    <ClInclude Include="src\Mixer\EntryPoint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

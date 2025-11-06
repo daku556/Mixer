@@ -11,7 +11,7 @@ namespace Mixer {
 	}
 
 	void Application::Run()
-	{
+	{	
 		while (true)
 		{
 

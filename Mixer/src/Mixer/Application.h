@@ -12,5 +12,7 @@ namespace Mixer {
 		void Run();
 	};
 
-	
+
+	// to be defind in client
+	Application* CreateApplication();
 }
