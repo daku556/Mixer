@@ -1,0 +1,3 @@
+[submodule "Mixer/Mixer/vendor/spdlog"]
+	path = Mixer/Mixer/vendor/spdlog
+	url = https://github.com/gabime/spdlog

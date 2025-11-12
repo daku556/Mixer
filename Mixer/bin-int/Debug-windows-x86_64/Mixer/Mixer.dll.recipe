@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\samsung\Documents\My Cpp Project\Mixer\Mixer\bin\Debug-x64\Mixer\Mixer.dll</FullPath>
+      <FullPath>C:\Users\samsung\Documents\My Cpp Project\Mixer\Mixer\bin\Debug-windows-x86_64\Mixer\Mixer.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
