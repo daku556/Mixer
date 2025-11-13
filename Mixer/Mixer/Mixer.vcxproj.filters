@@ -4,6 +4,9 @@
     <Filter Include="Mixer">
       <UniqueIdentifier>{AAFEAB0D-1613-D4BE-DF94-771E4B68D0EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mixer\Events">
+      <UniqueIdentifier>{4E47AF9F-3AAA-3E44-E32F-77FACF710AC7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mixer.h" />
@@ -16,10 +19,12 @@
     <ClInclude Include="src\Mixer\EntryPoint.h">
       <Filter>Mixer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mixer\Events\Event.h">
+      <Filter>Mixer\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mixer\Log.h">
       <Filter>Mixer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mixer\Events\Event.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mixer\Application.cpp">

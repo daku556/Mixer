@@ -427,8 +427,13 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# except
-Mixer/vendor/*
-!Mixer/vendor/
-!Mixer/vendor/bin/
-!Mixer/vendor/bin/**
+# log files
+*.log
+
+#vs files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+**.csproj
