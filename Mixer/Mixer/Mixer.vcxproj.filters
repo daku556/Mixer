@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Mixer">
+      <UniqueIdentifier>{AAFEAB0D-1613-D4BE-DF94-771E4B68D0EF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Mixer.h" />
+    <ClInclude Include="src\Mixer\Application.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Core.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\EntryPoint.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Log.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Events\Event.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Mixer\Application.cpp">
+      <Filter>Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\Log.cpp">
+      <Filter>Mixer</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
