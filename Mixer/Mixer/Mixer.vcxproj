@@ -150,6 +150,7 @@
     <ClInclude Include="src\Mixer\Application.h" />
     <ClInclude Include="src\Mixer\Core.h" />
     <ClInclude Include="src\Mixer\EntryPoint.h" />
+    <ClInclude Include="src\Mixer\Events\Event.h" />
     <ClInclude Include="src\Mixer\Log.h" />
   </ItemGroup>
   <ItemGroup>

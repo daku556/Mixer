@@ -19,6 +19,7 @@
     <ClInclude Include="src\Mixer\Log.h">
       <Filter>Mixer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mixer\Events\Event.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mixer\Application.cpp">
