@@ -440,4 +440,4 @@ FodyWeavers.xsd
 
 #bin files
 **/bin/
-bin-int/
+Mixer/bin-int/
