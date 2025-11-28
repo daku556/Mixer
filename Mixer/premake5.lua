@@ -16,6 +16,7 @@ Includedir = {}
 Includedir["GLFW"] = "Mixer/vendor/GLFW/include"
 Includedir["Glad"] = "Mixer/vendor/Glad/include"
 Includedir["ImGui"] = "Mixer/vendor/imgui/include"
+Includedir["glm"] = "Mixer/vendor/glm"
 
 include "Mixer/vendor/GLFW"
 include "Mixer/vendor/Glad"
@@ -33,6 +34,8 @@ project "Mixer"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -42,7 +45,8 @@ project "Mixer"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{Includedir.GLFW}",
 		"%{Includedir.Glad}",
-		"%{Includedir.ImGui}"
+		"%{Includedir.ImGui}",
+		"%{Includedir.glm}"
 	}
 
 	links
@@ -107,7 +111,8 @@ project "Sandbox"
 	includedirs 
 	{
 		"Mixer/vendor/spdlog/include",
-		"Mixer/src"
+		"Mixer/src",
+		"%{Includedir.glm}"
 	}
 
 	links

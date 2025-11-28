@@ -7,3 +7,6 @@
 [submodule "Mixer/Mixer/vendor/imgui"]
 	path = Mixer/Mixer/vendor/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "Mixer/Mixer/vendor/glm"]
+	path = Mixer/Mixer/vendor/glm
+	url = https://github.com/g-truc/glm
