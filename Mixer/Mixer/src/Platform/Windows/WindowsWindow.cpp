@@ -6,6 +6,8 @@
 #include "Mixer/Events/KeyEvent.h"
 #include "Mixer/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace Mixer {
 	static bool s_GLFWInitialized = false;
 
@@ -47,6 +49,8 @@ namespace Mixer {
 
 		m_Window = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MX_CORE_ASSERT(status, "Fail to initialize Glad");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

@@ -78,11 +78,11 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;MX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -100,14 +100,14 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;MX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -126,14 +126,14 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;MX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/utf-8 /MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -149,16 +149,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Mixer\Layer.h" />
-    <ClInclude Include="src\LayerStack.h" />
     <ClInclude Include="src\Mixer.h" />
     <ClInclude Include="src\Mixer\Application.h" />
     <ClInclude Include="src\Mixer\Core.h" />
+    <ClInclude Include="src\Mixer\Editor\EditorLayer.h" />
     <ClInclude Include="src\Mixer\EntryPoint.h" />
     <ClInclude Include="src\Mixer\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Mixer\Events\Event.h" />
     <ClInclude Include="src\Mixer\Events\KeyEvent.h" />
     <ClInclude Include="src\Mixer\Events\MouseEvent.h" />
+    <ClInclude Include="src\Mixer\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Mixer\Layer.h" />
     <ClInclude Include="src\Mixer\LayerStack.h" />
     <ClInclude Include="src\Mixer\Log.h" />
     <ClInclude Include="src\Mixer\Window.h" />
@@ -166,9 +167,10 @@
     <ClInclude Include="src\mxpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Mixer\Layer.cpp" />
-    <ClCompile Include="src\LayerStack.cpp" />
     <ClCompile Include="src\Mixer\Application.cpp" />
+    <ClCompile Include="src\Mixer\Editor\EditorLayer.cpp" />
+    <ClCompile Include="src\Mixer\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Mixer\Layer.cpp" />
     <ClCompile Include="src\Mixer\LayerStack.cpp" />
     <ClCompile Include="src\Mixer\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -177,6 +179,12 @@
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

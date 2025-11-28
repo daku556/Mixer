@@ -14,7 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- include directories
 Includedir = {}
 Includedir["GLFW"] = "Mixer/vendor/GLFW/include"
+Includedir["Glad"] = "Mixer/vendor/Glad/include"
+Includedir["ImGui"] = "Mixer/vendor/imgui/include"
+
 include "Mixer/vendor/GLFW"
+include "Mixer/vendor/Glad"
+include "Mixer/vendor/imgui"
 
 project "Mixer"
 	location "Mixer"
@@ -35,12 +40,16 @@ project "Mixer"
 		"%{prj.name}/src",
 		"%{prj.name}/src/Mixer",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{Includedir.GLFW}"
+		"%{Includedir.GLFW}",
+		"%{Includedir.Glad}",
+		"%{Includedir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -53,6 +62,7 @@ project "Mixer"
 		{
 			"MX_BUILD_DLL",
 			"MX_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

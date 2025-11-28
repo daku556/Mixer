@@ -4,8 +4,14 @@
     <Filter Include="Mixer">
       <UniqueIdentifier>{AAFEAB0D-1613-D4BE-DF94-771E4B68D0EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mixer\Editor">
+      <UniqueIdentifier>{A0D86B9E-8C3B-FB42-35C1-33F92103C7C5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Mixer\Events">
       <UniqueIdentifier>{4E47AF9F-3AAA-3E44-E32F-77FACF710AC7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mixer\ImGui">
+      <UniqueIdentifier>{544B673B-C000-E030-49F5-D907B5A9D634}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -22,6 +28,9 @@
     <ClInclude Include="src\Mixer\Core.h">
       <Filter>Mixer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mixer\Editor\EditorLayer.h">
+      <Filter>Mixer\Editor</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mixer\EntryPoint.h">
       <Filter>Mixer</Filter>
     </ClInclude>
@@ -37,6 +46,15 @@
     <ClInclude Include="src\Mixer\Events\MouseEvent.h">
       <Filter>Mixer\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mixer\ImGui\ImGuiLayer.h">
+      <Filter>Mixer\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Layer.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\LayerStack.h">
+      <Filter>Mixer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mixer\Log.h">
       <Filter>Mixer</Filter>
     </ClInclude>
@@ -47,12 +65,21 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\mxpch.h" />
-    <ClInclude Include="src\Mixer\Layer.h" />
-    <ClInclude Include="src\LayerStack.h" />
-    <ClInclude Include="src\Mixer\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mixer\Application.cpp">
+      <Filter>Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\Editor\EditorLayer.cpp">
+      <Filter>Mixer\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\ImGui\ImGuiLayer.cpp">
+      <Filter>Mixer\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\Layer.cpp">
+      <Filter>Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\LayerStack.cpp">
       <Filter>Mixer</Filter>
     </ClCompile>
     <ClCompile Include="src\Mixer\Log.cpp">
@@ -62,8 +89,5 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\mxcph.cpp" />
-    <ClCompile Include="src\Mixer\Layer.cpp" />
-    <ClCompile Include="src\LayerStack.cpp" />
-    <ClCompile Include="src\Mixer\LayerStack.cpp" />
   </ItemGroup>
 </Project>
