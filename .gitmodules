@@ -1,3 +1,6 @@
 [submodule "Mixer/Mixer/vendor/spdlog"]
 	path = Mixer/Mixer/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Mixer/Mixer/vendor/GLFW"]
+	path = Mixer/Mixer/vendor/GLFW
+	url = https://github.com/glfw/glfw

@@ -1,5 +1,6 @@
 workspace "Mixer"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -9,6 +10,11 @@ workspace "Mixer"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- include directories
+Includedir = {}
+Includedir["GLFW"] = "Mixer/vendor/GLFW/include"
+include "Mixer/vendor/GLFW"
 
 project "Mixer"
 	location "Mixer"
@@ -26,12 +32,21 @@ project "Mixer"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/src/Mixer",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{Includedir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		-- staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -89,7 +104,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		-- staticruntime "On"
 		systemversion "latest"
 
 		defines
