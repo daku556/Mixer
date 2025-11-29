@@ -19,9 +19,9 @@ Includedir["ImGui"] = "Mixer/vendor/imgui/include"
 Includedir["glm"] = "Mixer/vendor/glm"
 Includedir["stb"] = "Mixer/vendor/stb/include"
 
-include "Mixer/vendor/GLFW"
-include "Mixer/vendor/Glad"
-include "Mixer/vendor/imgui"
+include "Mixer/vendor/premake/premake5_GLFW.lua"
+include "Mixer/vendor/premake/premake5_glad.lua"
+include "Mixer/vendor/premake/premake5_imgui.lua"
 
 project "Mixer"
 	location "Mixer"

@@ -607,13 +607,13 @@ IF EXIST ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\D
     <ClCompile Include="vendor\stb\include\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+    <ProjectReference Include="vendor\premake\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+    <ProjectReference Include="vendor\premake\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+    <ProjectReference Include="vendor\premake\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>

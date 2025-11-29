@@ -7,14 +7,14 @@ project "Glad"
 
 	files
 	{
-		"include/glad/glad.h",
-        "include/KHR/khrplatform.h",
-        "src/glad.c"
+		"../Glad/include/glad/glad.h",
+        "../Glad/include/KHR/khrplatform.h",
+        "../Glad/src/glad.c"
 	}
 
     includedirs
     {
-        "include"
+        "../Glad/include"
     }
 
 	filter "system:windows"
