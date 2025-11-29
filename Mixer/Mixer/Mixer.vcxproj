@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;vendor\stb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/utf-8 /MDd %(AdditionalOptions)</AdditionalOptions>
@@ -93,7 +93,8 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Mixer\Mixer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Sandbox (mkdir ..\bin\Debug-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Mixer\Mixer.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -101,7 +102,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;vendor\stb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,7 +120,8 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Mixer\Mixer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Mixer\Mixer.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Mixer\Mixer.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\bin\Release-windows-x86_64\Sandbox (mkdir ..\bin\Release-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Release-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Mixer\Mixer.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Mixer\Mixer.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -127,7 +129,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MX_BUILD_DLL;MX_PLATFORM_WINDOWS;GLFW_INCLUDE_NONE;MX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\Mixer;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui\include;vendor\glm;vendor\stb\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -145,14 +147,18 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Mixer\Mixer.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\bin\Dist-windows-x86_64\Sandbox (mkdir ..\bin\Dist-windows-x86_64\Sandbox)
+IF EXIST ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Mixer\Mixer.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Mixer.h" />
     <ClInclude Include="src\Mixer\Application.h" />
     <ClInclude Include="src\Mixer\Core.h" />
+    <ClInclude Include="src\Mixer\Editor\EditorGrid.h" />
     <ClInclude Include="src\Mixer\Editor\EditorLayer.h" />
+    <ClInclude Include="src\Mixer\Editor\Texture.h" />
+    <ClInclude Include="src\Mixer\Editor\UILayer.h" />
     <ClInclude Include="src\Mixer\EntryPoint.h" />
     <ClInclude Include="src\Mixer\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Mixer\Events\Event.h" />
@@ -584,16 +590,21 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="vendor\stb\include\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mixer\Application.cpp" />
+    <ClCompile Include="src\Mixer\Editor\EditorGrid.cpp" />
     <ClCompile Include="src\Mixer\Editor\EditorLayer.cpp" />
+    <ClCompile Include="src\Mixer\Editor\Texture.cpp" />
+    <ClCompile Include="src\Mixer\Editor\UILayer.cpp" />
     <ClCompile Include="src\Mixer\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Mixer\Layer.cpp" />
     <ClCompile Include="src\Mixer\LayerStack.cpp" />
     <ClCompile Include="src\Mixer\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mxcph.cpp" />
+    <ClCompile Include="vendor\stb\include\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

@@ -43,6 +43,12 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb">
+      <UniqueIdentifier>{8BD3C5A8-778B-07F6-E092-E051CC69A2E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\include">
+      <UniqueIdentifier>{FE550769-EA39-C8BE-539A-C2113F9DB240}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mixer.h">
@@ -54,7 +60,16 @@
     <ClInclude Include="src\Mixer\Core.h">
       <Filter>src\Mixer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mixer\Editor\EditorGrid.h">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mixer\Editor\EditorLayer.h">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Editor\Texture.h">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mixer\Editor\UILayer.h">
       <Filter>src\Mixer\Editor</Filter>
     </ClInclude>
     <ClInclude Include="src\Mixer\EntryPoint.h">
@@ -1350,12 +1365,24 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\stb\include\stb_image.h">
+      <Filter>vendor\stb\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Mixer\Application.cpp">
       <Filter>src\Mixer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mixer\Editor\EditorGrid.cpp">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClCompile>
     <ClCompile Include="src\Mixer\Editor\EditorLayer.cpp">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\Editor\Texture.cpp">
+      <Filter>src\Mixer\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mixer\Editor\UILayer.cpp">
       <Filter>src\Mixer\Editor</Filter>
     </ClCompile>
     <ClCompile Include="src\Mixer\ImGui\ImGuiLayer.cpp">
@@ -1375,6 +1402,9 @@
     </ClCompile>
     <ClCompile Include="src\mxcph.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\stb\include\stb_image.cpp">
+      <Filter>vendor\stb\include</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,6 +17,7 @@ Includedir["GLFW"] = "Mixer/vendor/GLFW/include"
 Includedir["Glad"] = "Mixer/vendor/Glad/include"
 Includedir["ImGui"] = "Mixer/vendor/imgui/include"
 Includedir["glm"] = "Mixer/vendor/glm"
+Includedir["stb"] = "Mixer/vendor/stb/include"
 
 include "Mixer/vendor/GLFW"
 include "Mixer/vendor/Glad"
@@ -36,6 +37,8 @@ project "Mixer"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/vendor/stb/include/**.h",
+		"%{prj.name}/vendor/stb/include/**.cpp",
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "Mixer"
 		"%{Includedir.GLFW}",
 		"%{Includedir.Glad}",
 		"%{Includedir.ImGui}",
-		"%{Includedir.glm}"
+		"%{Includedir.glm}",
+		"%{Includedir.stb}"
 	}
 
 	links
@@ -71,6 +75,7 @@ project "Mixer"
 
 		postbuildcommands
 		{
+            ("{MKDIR} ../bin/" .. outputdir .. "/Sandbox"),
 			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
@@ -120,6 +125,17 @@ project "Sandbox"
 		"Mixer"
 	}
 
+	postbuildcommands
+    {
+		-- 1. 목적지 폴더(assets)를 먼저 생성합니다. (Mixer 방식)
+        ("{MKDIR} ../bin/" .. outputdir .. "/Sandbox/assets"),
+
+        -- 2. xcopy로 내용물을 복사합니다. 
+        -- [중요] xcopy는 경로에 백슬래시(\)가 필요하므로 Lua에서 \\로 적어줍니다.
+        -- "../assets" 폴더의 내용을 -> "../bin/.../Sandbox/assets" 폴더로 복사
+        ("xcopy /Q /E /Y /I \"assets\" \"..\\bin\\" .. outputdir .. "\\Sandbox\\assets\"")
+    }
+
 	filter "system:windows"
 		cppdialect "C++17"
 		-- staticruntime "On"
@@ -146,6 +162,8 @@ project "Sandbox"
 		optimize "On"
 
 	filter "configurations:Dist"
+		kind "WindowedApp"
 		defines "MX_DIST"
 		buildoptions "/MD"
 		optimize "On"
+        entrypoint "mainCRTStartup"

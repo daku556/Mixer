@@ -90,6 +90,10 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST ..\bin\Debug-windows-x86_64\Sandbox\assets (mkdir ..\bin\Debug-windows-x86_64\Sandbox\assets)
+xcopy /Q /E /Y /I "assets" "..\bin\Debug-windows-x86_64\Sandbox\assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -111,6 +115,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST ..\bin\Release-windows-x86_64\Sandbox\assets (mkdir ..\bin\Release-windows-x86_64\Sandbox\assets)
+xcopy /Q /E /Y /I "assets" "..\bin\Release-windows-x86_64\Sandbox\assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -128,10 +136,15 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
+    <PostBuildEvent>
+      <Command>IF NOT EXIST ..\bin\Dist-windows-x86_64\Sandbox\assets (mkdir ..\bin\Dist-windows-x86_64\Sandbox\assets)
+xcopy /Q /E /Y /I "assets" "..\bin\Dist-windows-x86_64\Sandbox\assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\SandboxApp.cpp" />

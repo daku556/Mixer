@@ -4,6 +4,7 @@
 #include "Mixer/Events/ApplicationEvent.h"
 #include "Mixer/Editor/EditorLayer.h"
 #include "Mixer/Log.h"
+#include "Mixer/Editor/UILayer.h"
 
 #include <glad/glad.h>
 
@@ -20,6 +21,7 @@ namespace Mixer {
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		PushLayer(new EditorLayer);
+		PushOverlay(new UILayer()); // [추가] 오버레이로 등록 (가장 마지막에 그려짐)
 	}
 	Application::~Application()
 	{
@@ -42,7 +44,7 @@ namespace Mixer {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		MX_CORE_TRACE("{0}", e.ToString());
+		//MX_CORE_TRACE("{0}", e.ToString());
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
