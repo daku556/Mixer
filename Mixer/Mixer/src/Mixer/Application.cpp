@@ -2,29 +2,56 @@
 #include "Application.h"
 
 #include "Mixer/Events/ApplicationEvent.h"
+#include "Mixer/Editor/EditorLayer.h"
 #include "Mixer/Log.h"
+#include "Mixer/Editor/UILayer.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Mixer {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		PushLayer(new EditorLayer);
+		PushOverlay(new UILayer()); // [추가] 오버레이로 등록 (가장 마지막에 그려짐)
 	}
 	Application::~Application()
 	{
 		
 	}
 
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		MX_CORE_TRACE("{0}", e.ToString());
+		//MX_CORE_TRACE("{0}", e.ToString());
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
 	}
 
 
@@ -34,6 +61,10 @@ namespace Mixer {
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+			for (Layer* layer : m_LayerStack)
+			{
+				layer->OnUpdate();
+			}
 			m_Window->OnUpdate();
 		}
 	}

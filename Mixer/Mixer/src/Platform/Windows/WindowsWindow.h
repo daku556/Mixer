@@ -2,7 +2,7 @@
 
 #include "Mixer/Window.h"
 
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 
 namespace Mixer {
 	class WindowsWindow : public Window
@@ -16,7 +16,7 @@ namespace Mixer {
 
 		unsigned int GetWidth() const override { return m_Data.Width; };
 
-		unsigned int GetHeigth() const override { return m_Data.Height; };
+		unsigned int GetHeight() const override { return m_Data.Height; };
 
 		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
 

@@ -29,7 +29,7 @@ namespace Mixer {
 		virtual ~Window() {};
 		virtual void OnUpdate() = 0;
 		virtual unsigned int GetWidth() const = 0;
-		virtual unsigned int GetHeigth() const = 0;
+		virtual unsigned int GetHeight() const = 0;
 
 		//window attr
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
