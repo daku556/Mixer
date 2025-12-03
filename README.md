@@ -35,3 +35,6 @@ https://github.com/nothings/stb
 
 imgui: gui생성에서 사용하려 했으나 사용하지 않음
 https://github.com/ocornut/imgui
+
+본 프로젝트는 Cherno의 hazel엔진에서 기본 구조를 차용했습니다.
+https://github.com/TheCherno/Hazel
