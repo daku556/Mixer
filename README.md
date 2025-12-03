@@ -25,6 +25,8 @@ This project is 3th Computer Graphics lecture project
 ---------------------------------
 
 사용한 오픈소스 라이브러리
+
+
 glad: opengl 로더
 https://github.com/Dav1dde/glad
 
@@ -46,5 +48,5 @@ https://github.com/nothings/stb
 imgui: gui생성에서 사용하려 했으나 사용하지 않음
 https://github.com/ocornut/imgui
 
-Cherno의 hazel 기본 구조를 사용했습니다.
+hazel: 기본 구조 사용
 https://github.com/TheCherno/Hazel
