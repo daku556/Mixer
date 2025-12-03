@@ -17,15 +17,21 @@ This project is 3th Computer Graphics lecture project
 사용한 오픈소스 라이브러리
 glad: opengl 로더
 https://github.com/Dav1dde/glad
+
 GLFW: 창 생성 및 입력
 https://github.com/glfw/glfw
+
 glm: 백터, 행렬 연산 
 https://github.com/g-truc/glm
+
 premake: 플랫폼 빌드설정, VS 설정 자동화
 https://github.com/premake/premake-core
+
 spdlog: 디버깅 로그
 https://github.com/gabime/spdlog
+
 stb: 이미지 로드
 https://github.com/nothings/stb
+
 imgui: gui생성에서 사용하려 했으나 사용하지 않음
 https://github.com/ocornut/imgui
